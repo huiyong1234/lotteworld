@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-size: 16px; 기본값 */
+    font-size: 14px;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* reset */
+li {
+    list-style: none;
+    /* 블릿문자 삭제 */
+}
+
+a {
+    color: #333;
+    /* 글자색 */
+    text-decoration: none;
+    /* 밑줄삭제 */
+}
+
+/* wrap*/
+#wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/*header*/
+#header h1 {
+    /* 롯데월드 마크 사이즈 */
+    float: left;
+    width: 120px;
+}
+
+#header h1 a img {
+    width: 100%;
+}
+
+#header .nav {
+    float: right;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*text-align:center : 자식요소중 인 라인 요소를 가운데로 정렬 // block 요소인 나 자신을 가운데로 정렬할때 margin: auto;*/
+#header .nav ul li {
+    position: relative;
+    float: left;
+    width: 120px;
+}
+
+#header .nav ul li a {
+    background-color: #ccc;
+    display: block;
+    /*a 태그는 인 라인 요소, block 부모넓이를 다 차지*/
+    padding: 20px 15px;
+    /*값이 두 개일 경우 상하/좌우*/
+    transition: 0.3s;
+}
+
+#header .nav ul li a:hover {
+    background-color: #ddd;
+}
+
+#header .nav ul li .submenu {
+    display: none;
+    position: absolute;
+    /*형제보다 위로*/
+    top: 60px;
+    left: 0;
+    z-index: 10;
+    /*메뉴에 마우스를 올렸을 때 앞으로 나옴(z축-앞과 뒤)//position이 있어야 실행 */
+}
+
+/*banner*/
+#banner {
+    height: 669px;
+    overflow: hidden;
+}
+
+#banner .slideList {
+    position: relative;
+}
+
+#banner .slideList .slideImg {
+    position: relative;
+    height: 100%;
+}
+
+#banner .slideList .slideImg h2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    /*마지막이 opacity*/
+    padding: 10px 30px;
+    border-radius: 20px;
+    /*반지름이 20px인 라운드*/
+    color: #fff;
+}
+#banner .slideList .slideImg img{
+    width: 100%;
+    height: 100%;
+}
+/* img태그는 인라인요소인데 넓이를 인식한다 // 부모의 넓이 = wrap이 1000px */
+/* img태그의 특징
+인라인요소 >> 예측하지 못한 공간을 가짐
+해결방법2가지
+1) display:block;
+2) vertical-align: top; */
+/*contect*/
+#content1{
+    margin-top: 15px;
+}
+#content1 .notice{
+    position: relative;
+    float: left;
+    width: 49%;
+    height: 218px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    /* box-sizing : 패딩,선까지 다 들어옴 */
+    padding: 30px;
+}
+#content1 .ad{
+    float: right;
+    width: 49%;
+    background-color: blue;
+    height: 218px;
+}
+#content1 .ad a img{width: 100%; height: 100%;}
+#content1 .notice ul li{
+    float: left;
+    margin-right: 10px;
+}
+#content1 .notice ul li a{
+    font-size: 24px;
+    color: #999;
+    font-weight: bold;/*두께*/
+}
+#content1 .notice ul li.active a{color: #000;}
+#content1 .notice ul li ul{
+    position: absolute;
+    left: 30px;top: 70px;
+}
+#content1 .notice ul li ul a{
+    font-size: 16px;
+    float: left;
+    width: 68%;
+    /*말 줄임말*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /*말 줄임말*/
+    font-weight: normal; /*폰트두께초기화*/
+}
+#content1 .notice ul li span{
+    float: right;
+}
+/*content2*/
+#content2 ul{width: 100%;}
+#content2 ul li{
+    float: left;
+    width: 24.25%; margin-right: 1%;
+}
+#content2 ul li:last-child{margin-right: 0;}
+#content2 ul li div{overflow: hidden;}/*상자 밖으로 나오지 않게*/
+#content2 ul li div img{width: 100%;transition: 0.3;}
+#content2 ul li div:hover img{
+        /*transform: scale(1);=100%기본값*/
+        transform: scale(1.2);/*120%*/
+}
